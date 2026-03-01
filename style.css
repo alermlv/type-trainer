@@ -58,3 +58,25 @@ button {
 .button--primary {
   font-weight: 900;
 }
+
+.typing-input-section {
+  margin-top: 20px;
+}
+
+.typing-input {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  font-size: 20px;
+}
+
+.typing-text-section {
+  margin-top: 8px;
+}
+
+.typing-text {
+  width: 100%;
+  font-size: 20px;
+  height: 5.6em;
+  user-select: none;
+}
