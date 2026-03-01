@@ -1,3 +1,7 @@
+/* ==========
+  CSS reset
+========== */
+
 *,
 *::before,
 *::after {
@@ -15,6 +19,10 @@ textarea {
   background: none;
 }
 
+/* ==========
+  Base styles
+========== */
+
 html {
   font-size: 16px;
   line-height: 1.4;
@@ -26,21 +34,9 @@ body {
   background: #fff;
 }
 
-.header {
-  max-width: 1056px;
-  margin: 0 auto;
-  padding: 0 16px;
-  height: 80px;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.content {
-  max-width: 1056px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
+/* ==========
+  Button
+========== */
 
 button {
   width: 106px;
@@ -59,6 +55,30 @@ button {
   font-weight: 900;
 }
 
+/* ==========
+  Layout
+========== */
+
+.header {
+  max-width: 1056px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.content {
+  max-width: 1056px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ==========
+  Input section
+========== */
+
 .typing-input-section {
   margin-top: 20px;
 }
@@ -70,6 +90,10 @@ button {
   font-size: 20px;
 }
 
+/* ==========
+  Text section
+========== */
+
 .typing-text-section {
   margin-top: 8px;
 }
@@ -80,6 +104,10 @@ button {
   height: 5.6em;
   user-select: none;
 }
+
+/* ==========
+  Keyboard section
+========== */
 
 .keyboard-section {
   margin-top: 32px;
