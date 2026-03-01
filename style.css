@@ -81,6 +81,10 @@ button {
   user-select: none;
 }
 
+.keyboard-section {
+  margin-top: 32px;
+}
+
 .keyboard {
   display: flex;
   flex-direction: column;
