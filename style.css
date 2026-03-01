@@ -30,10 +30,31 @@ body {
   max-width: 1056px;
   margin: 0 auto;
   padding: 0 16px;
+  height: 80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .content {
   max-width: 1056px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+button {
+  width: 106px;
+  height: 47px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.button:hover {
+  background: #ccc;
+}
+
+.button--primary {
+  font-weight: 900;
 }
