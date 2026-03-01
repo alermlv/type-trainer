@@ -80,3 +80,54 @@ button {
   height: 5.6em;
   user-select: none;
 }
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+
+.keys-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.keys-line--space {
+  justify-content: center;
+}
+
+.key {
+  width: 62px;
+  height: 62px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  line-height: 62px;
+  text-align: center;
+  user-select: none;
+  transition: background 0.15s ease;
+}
+
+.key--small {
+  height: 47px;
+  line-height: 47px;
+}
+
+.key--wide {
+  width: 106px;
+}
+
+.key--medium-wide {
+  width: 120px;
+}
+
+.key--extra-wide {
+  width: 154px;
+}
+
+.key--space {
+  width: 686px;
+}
+
+.key.active {
+  background: #ccc;
+}
