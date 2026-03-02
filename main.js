@@ -1,6 +1,11 @@
 const keyElemenets = document.querySelectorAll(".key");
 const textElement = document.querySelector(".text");
 const inputElement = document.querySelector(".input");
+const textareaElement = document.querySelector(".textarea");
+const openPopupButton = document.querySelector(".open-popup-button");
+const addTextButton = document.querySelector(".add-text-button");
+const closePopupButton = document.querySelector(".close-popup-button");
+const popupElement = document.querySelector(".popup");
 let text = "Some text to type";
 let currentIndex = 0;
 let resetTimer = null;
@@ -12,7 +17,7 @@ let isFinishedTyping = false;
   Text Initialization
 ========== */
 
-function initText() {
+function initText(text) {
   textElement.innerHTML = "";
 
   text.split("").forEach((char) => {
@@ -27,7 +32,7 @@ function initText() {
   inputElement.focus();
 }
 
-initText();
+initText(text);
 
 /* ==========
   Typing Validation
@@ -133,3 +138,23 @@ function updateKeyboardLetters() {
     key.textContent = isUpper ? letter.toUpperCase() : letter.toLowerCase();
   });
 }
+
+/* ==========
+  Popup logic & add text
+========== */
+
+openPopupButton.addEventListener("click", () => {
+  popupElement.classList.remove("hidden");
+  textareaElement.focus();
+});
+
+closePopupButton.addEventListener("click", () => {
+  popupElement.classList.add("hidden");
+  textareaElement.value = "";
+})
+
+addTextButton.addEventListener("click", () => {
+  initText(textareaElement.value);
+  popupElement.classList.add("hidden");
+  textareaElement.value = "";
+});
