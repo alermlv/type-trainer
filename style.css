@@ -79,11 +79,11 @@ button {
   Input section
 ========== */
 
-.typing-input-section {
+.input-section {
   margin-top: 20px;
 }
 
-.typing-input {
+.input {
   width: 100%;
   border-bottom: 1px solid #ccc;
   padding-bottom: 4px;
@@ -94,11 +94,11 @@ button {
   Text section
 ========== */
 
-.typing-text-section {
+.text-section {
   margin-top: 8px;
 }
 
-.typing-text {
+.text {
   width: 100%;
   font-size: 20px;
   height: 5.6em;
