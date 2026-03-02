@@ -30,6 +30,48 @@ function initText() {
 initText();
 
 /* ==========
+  Typing Validation
+========== */
+
+inputElement.addEventListener("keydown", (event) => {
+  const currentChar = event.key;
+  const expectedChar = text[currentIndex];
+  const spanElements = textElement.querySelectorAll("span");
+  const currentSpan = spanElements[currentIndex];
+
+  if (isFinishedTyping) {
+    event.preventDefault();
+    resetTyping();
+    return;
+  }
+
+  if(!isPrintableKey(event)) return;
+
+  clearTimeout(resetTimer);
+  resetTimer = setTimeout(resetTyping, 5000);
+
+  if (currentChar === expectedChar) {
+    currentSpan.classList.add("success");
+    currentIndex++;
+
+    if (text.length === currentIndex) {
+      isFinishedTyping = true;
+    }
+  } else {
+    event.preventDefault();
+    currentSpan.classList.add("mistake");
+  }
+});
+
+function resetTyping() {
+  initText(text);
+}
+
+function isPrintableKey(event) {
+  return event.key.length === 1;
+}
+
+/* ==========
   Keyboard Highlight
 ========== */
 
@@ -90,46 +132,4 @@ function updateKeyboardLetters() {
 
     key.textContent = isUpper ? letter.toUpperCase() : letter.toLowerCase();
   });
-}
-
-/* ==========
-  Typing Validation
-========== */
-
-inputElement.addEventListener("keydown", (event) => {
-  const currentChar = event.key;
-  const expectedChar = text[currentIndex];
-  const spanElements = textElement.querySelectorAll("span");
-  const currentSpan = spanElements[currentIndex];
-
-  if (isFinishedTyping) {
-    event.preventDefault();
-    resetTyping();
-    return;
-  }
-
-  if(!isPrintableKey(event)) return;
-
-  clearTimeout(resetTimer);
-  resetTimer = setTimeout(resetTyping, 5000);
-
-  if (currentChar === expectedChar) {
-    currentSpan.classList.add("success");
-    currentIndex++;
-
-    if (text.length === currentIndex) {
-      isFinishedTyping = true;
-    }
-  } else {
-    event.preventDefault();
-    currentSpan.classList.add("mistake");
-  }
-});
-
-function resetTyping() {
-  initText(text);
-}
-
-function isPrintableKey(event) {
-  return event.key.length === 1;
 }
