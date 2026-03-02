@@ -1,6 +1,8 @@
 const keyElemenets = document.querySelectorAll(".key");
 const textElement = document.querySelector(".text");
+const inputElement = document.querySelector(".input");
 let text = "Some text to type";
+let currentIndex = 0;
 let isCapsLock = false;
 let isShiftPressed = false;
 
@@ -80,3 +82,22 @@ function updateKeyboardLetters() {
     key.textContent = isUpper ? letter.toUpperCase() : letter.toLowerCase();
   });
 }
+
+/* ==========
+  Typing Validation
+========== */
+
+inputElement.addEventListener("keydown", (event) => {
+  const currentChar = event.key;
+  const expectedChar = text[currentIndex];
+  const spanElements = textElement.querySelectorAll("span");
+  const currentSpan = spanElements[currentIndex];
+
+  if (currentChar === expectedChar) {
+    currentSpan.classList.add("success");
+    currentIndex++;
+  } else {
+    event.preventDefault();
+    currentSpan.classList.add("mistake");
+  }
+});
