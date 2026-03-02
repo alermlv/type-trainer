@@ -3,6 +3,7 @@ const textElement = document.querySelector(".text");
 const inputElement = document.querySelector(".input");
 let text = "Some text to type";
 let currentIndex = 0;
+let resetTimer = null;
 let isCapsLock = false;
 let isShiftPressed = false;
 let isFinishedTyping = false;
@@ -107,6 +108,11 @@ inputElement.addEventListener("keydown", (event) => {
     return;
   }
 
+  if(!isPrintableKey(event)) return;
+
+  clearTimeout(resetTimer);
+  resetTimer = setTimeout(resetTyping, 5000);
+
   if (currentChar === expectedChar) {
     currentSpan.classList.add("success");
     currentIndex++;
@@ -122,4 +128,8 @@ inputElement.addEventListener("keydown", (event) => {
 
 function resetTyping() {
   initText(text);
+}
+
+function isPrintableKey(event) {
+  return event.key.length === 1;
 }
