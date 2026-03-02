@@ -55,7 +55,11 @@ inputElement.addEventListener("keydown", (event) => {
 
   if (isFinishedTyping) {
     event.preventDefault();
-    resetTyping();
+
+    if (currentChar === " ") {
+      resetTyping();
+    }
+
     return;
   }
 
