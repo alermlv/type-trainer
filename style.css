@@ -51,7 +51,7 @@ button {
   transition: background 0.15s ease;
 }
 
-.button:hover {
+button:hover {
   background: #ccc;
 }
 
