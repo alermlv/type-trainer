@@ -1,6 +1,22 @@
 const keys = document.querySelectorAll(".key");
+const textElement = document.querySelector(".text");
+let text = "Some text to type";
 let isCapsLock = false;
 let isShiftPressed = false;
+
+/* ==========
+  Text Initialization
+========== */
+
+function initText() {
+  text.split("").forEach((char) => {
+    const spanElement = document.createElement("span");
+    spanElement.textContent = char;
+    textElement.appendChild(spanElement);
+  });
+}
+
+initText();
 
 /* ==========
   Keyboard Highlight
