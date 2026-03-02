@@ -5,17 +5,25 @@ let text = "Some text to type";
 let currentIndex = 0;
 let isCapsLock = false;
 let isShiftPressed = false;
+let isFinishedTyping = false;
 
 /* ==========
   Text Initialization
 ========== */
 
 function initText() {
+  textElement.innerHTML = "";
+
   text.split("").forEach((char) => {
     const spanElement = document.createElement("span");
     spanElement.textContent = char;
     textElement.appendChild(spanElement);
   });
+
+  inputElement.value = "";
+  currentIndex = 0;
+  isFinishedTyping = false;
+  inputElement.focus();
 }
 
 initText();
@@ -93,11 +101,25 @@ inputElement.addEventListener("keydown", (event) => {
   const spanElements = textElement.querySelectorAll("span");
   const currentSpan = spanElements[currentIndex];
 
+  if (isFinishedTyping) {
+    event.preventDefault();
+    resetTyping();
+    return;
+  }
+
   if (currentChar === expectedChar) {
     currentSpan.classList.add("success");
     currentIndex++;
+
+    if (text.length === currentIndex) {
+      isFinishedTyping = true;
+    }
   } else {
     event.preventDefault();
     currentSpan.classList.add("mistake");
   }
 });
+
+function resetTyping() {
+  initText(text);
+}
