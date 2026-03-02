@@ -1,3 +1,7 @@
+/* ==========
+  DOM Elements
+========== */
+
 const keyElemenets = document.querySelectorAll(".key");
 const textElement = document.querySelector(".text");
 const inputElement = document.querySelector(".input");
@@ -6,6 +10,11 @@ const openPopupButton = document.querySelector(".open-popup-button");
 const addTextButton = document.querySelector(".add-text-button");
 const closePopupButton = document.querySelector(".close-popup-button");
 const popupElement = document.querySelector(".popup");
+
+/* ==========
+  State
+========== */
+
 let text = "Some text to type";
 let currentIndex = 0;
 let resetTimer = null;
@@ -50,7 +59,7 @@ inputElement.addEventListener("keydown", (event) => {
     return;
   }
 
-  if(!isPrintableKey(event)) return;
+  if (!isPrintableKey(event)) return;
 
   clearTimeout(resetTimer);
   resetTimer = setTimeout(resetTyping, 5000);
@@ -151,7 +160,7 @@ openPopupButton.addEventListener("click", () => {
 closePopupButton.addEventListener("click", () => {
   popupElement.classList.add("hidden");
   textareaElement.value = "";
-})
+});
 
 addTextButton.addEventListener("click", () => {
   initText(textareaElement.value);
