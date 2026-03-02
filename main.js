@@ -1,4 +1,4 @@
-const keys = document.querySelectorAll(".key");
+const keyElemenets = document.querySelectorAll(".key");
 const textElement = document.querySelector(".text");
 let text = "Some text to type";
 let isCapsLock = false;
@@ -69,7 +69,7 @@ window.addEventListener("keyup", (event) => {
 });
 
 function updateKeyboardLetters() {
-  keys.forEach((key) => {
+  keyElemenets.forEach((key) => {
     const code = key.dataset.code;
 
     if (!code.startsWith("Key")) return;
