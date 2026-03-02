@@ -105,6 +105,14 @@ button {
   user-select: none;
 }
 
+.text span.success {
+  color: #ccc;
+}
+
+.text span.mistake {
+  background: yellow;
+}
+
 /* ==========
   Keyboard section
 ========== */
