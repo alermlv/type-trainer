@@ -72,7 +72,7 @@ inputElement.addEventListener("keydown", (event) => {
     currentSpan.classList.add("success");
     currentIndex++;
 
-    if (text.length === currentIndex) {
+    if (currentIndex === text.length) {
       isFinishedTyping = true;
     }
   } else {
