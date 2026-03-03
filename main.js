@@ -2,7 +2,7 @@
   DOM Elements
 ========== */
 
-const keyElemenets = document.querySelectorAll(".key");
+const keyElements = document.querySelectorAll(".key");
 const textElement = document.querySelector(".text");
 const inputElement = document.querySelector(".input");
 const textareaElement = document.querySelector(".textarea");
@@ -82,6 +82,8 @@ inputElement.addEventListener("keydown", (event) => {
 });
 
 function resetTyping() {
+  clearTimeout(resetTimer);
+  resetTimer = null;
   initText(text);
 }
 
@@ -94,7 +96,7 @@ function isPrintableKey(event) {
 ========== */
 
 window.addEventListener("keydown", (event) => {
-  const key = document.querySelector(`.key[data-code=${event.code}]`);
+  const key = document.querySelector(`.key[data-code="${event.code}"]`);
 
   if (key) {
     key.classList.add("active");
@@ -102,7 +104,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("keyup", (event) => {
-  const key = document.querySelector(`.key[data-code=${event.code}]`);
+  const key = document.querySelector(`.key[data-code="${event.code}"]`);
 
   if (key) {
     key.classList.remove("active");
@@ -140,7 +142,7 @@ window.addEventListener("keyup", (event) => {
 });
 
 function updateKeyboardLetters() {
-  keyElemenets.forEach((key) => {
+  keyElements.forEach((key) => {
     const code = key.dataset.code;
 
     if (!code.startsWith("Key")) return;
@@ -167,7 +169,13 @@ closePopupButton.addEventListener("click", () => {
 });
 
 addTextButton.addEventListener("click", () => {
-  initText(textareaElement.value);
+  const textareaValue = textareaElement.value.trim();
+
+  if (!textareaValue) return;
+
+  text = textareaValue;
+  initText(text);
+
   popupElement.classList.add("hidden");
   textareaElement.value = "";
 });
