@@ -1,5 +1,5 @@
 /* ==========
-  DOM Elements
+  DOM elements
 ========== */
 
 const keyElements = document.querySelectorAll(".key");
@@ -23,7 +23,7 @@ let isShiftPressed = false;
 let isFinishedTyping = false;
 
 /* ==========
-  Text Initialization
+  Text initialization
 ========== */
 
 function initText(text) {
@@ -44,7 +44,7 @@ function initText(text) {
 initText(text);
 
 /* ==========
-  Typing Validation
+  Typing validation
 ========== */
 
 inputElement.addEventListener("keydown", (event) => {
@@ -92,7 +92,7 @@ function isPrintableKey(event) {
 }
 
 /* ==========
-  Keyboard Highlight
+  Keyboard highlight
 ========== */
 
 window.addEventListener("keydown", (event) => {
@@ -155,7 +155,7 @@ function updateKeyboardLetters() {
 }
 
 /* ==========
-  Popup logic & add text
+  Popup & Add text
 ========== */
 
 openPopupButton.addEventListener("click", () => {
